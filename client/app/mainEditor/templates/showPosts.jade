@@ -1,0 +1,10 @@
+navbar
+.container
+  p
+    | Lista de Posts
+  ul.list-group
+    li.list-group-item(ng-repeat='version in posts.versionPosts')
+      strong {{version.titulo}}
+      br    
+      a.trash(ng-click='showPosts.delete(versionsPost)')
+        span.glyphicon.glyphicon-trash.pull-right
