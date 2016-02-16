@@ -26,17 +26,17 @@ angular.module('culturaColectivaApp')
 .controller('showPostsCtrl', function ($scope,$stateParams,Post) {
 
 $scope.posts= Post.query();
- //$scope.versionsPosts =[];
+// $scope.versionsPosts =[];
  //$scope.version=null;
 
    $scope.posts.$promise.then(()=> {
-   //	$scope.versionsPosts = $scope.posts.VersionPosts;
+   	//$scope.versionsPosts = $scope.posts.VersionPosts;
 
     	/*if($stateParams.version){           
     		$scope.version=$scope.versionsPosts[$stateParams.version -1];
     	}else{          
     		$scope.version= $scope.versionsPosts [0];
-    	} */   
+    	} */  
 
     });
 
