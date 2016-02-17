@@ -7,7 +7,7 @@ module.exports = {
   // Sequelize connecton opions
   sequelize: {
     user: 'root',
-    password:'root',
+    password:'cc1234',
     options: {
       logging: false,
       define: {
