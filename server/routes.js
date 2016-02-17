@@ -9,6 +9,7 @@ import path from 'path';
 
 export default function(app) {
   // Insert routes below
+  app.use('/api/viewLastVersionPosts', require('./api/viewLastVersionPost'));
   app.use('/api/versionPosts', require('./api/versionPost'));
   app.use('/api/posts', require('./api/post'));
  

@@ -17,6 +17,7 @@ function onConnect(socket) {
   });
 
   // Insert sockets below
+  require('../api/viewLastVersionPost/viewLastVersionPost.socket').register(socket);
   require('../api/versionPost/versionPost.socket').register(socket);
     require('../api/post/post.socket').register(socket);
   

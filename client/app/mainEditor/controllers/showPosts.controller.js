@@ -30,7 +30,7 @@ $scope.posts= Post.query();
  //$scope.version=null;
 
    $scope.posts.$promise.then(()=> {
-   	//$scope.versionsPosts = $scope.posts.VersionPosts;
+  // 	$scope.versionsPosts = $scope.posts.VersionPosts;
 
     	/*if($stateParams.version){           
     		$scope.version=$scope.versionsPosts[$stateParams.version -1];

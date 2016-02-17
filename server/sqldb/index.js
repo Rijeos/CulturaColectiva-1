@@ -14,6 +14,7 @@ var db = {
 };
 
 // Insert models below
+db.ViewLastVersionPost = db.sequelize.import('../api/viewLastVersionPost/viewLastVersionPost.model');
 db.VersionPost = db.sequelize.import('../api/versionPost/versionPost.model');
 db.Post = db.sequelize.import('../api/post/post.model');
 db.User = db.sequelize.import('../api/user/user.model');
