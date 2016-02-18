@@ -4,8 +4,11 @@ navbar
     | Lista de Posts
   ul.list-group
     li.list-group-item(ng-repeat='post in posts' )
-      ul(style="list-style:none;")
-        li(ng-repeat='version in post.VersionPosts')
-         {{version.titulo}}         
-      a.trash(ng-click='delete(post)')
-        span.glyphicon.glyphicon-trash.pull-right
+      p(ng-repeat='version in post.VersionPosts')
+         {{version.titulo}}
+         param:{{version.idArticulo}}
+         a.trash(ng-click='delete(post)')
+           span.glyphicon.glyphicon-trash.pull-right 
+         a.edit(ng-click='update(post)')
+           span.glyphicon.glyphicon-edit.pull-right        
+         
