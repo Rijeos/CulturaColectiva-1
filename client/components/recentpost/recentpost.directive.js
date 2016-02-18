@@ -6,6 +6,7 @@ angular.module('culturaColectivaApp')
       templateUrl: 'components/recentPost/recentPost.html',
       restrict: 'E',
       link: function (scope, element, attrs) {
-      }
+      },
+      controller:'recentPostsCtrl'
     };
   });
