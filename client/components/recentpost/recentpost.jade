@@ -4,9 +4,12 @@ ul.collection.recent
     p.dividervcc 02/02/2010
       span.right 
         i.icon.icon-view.chico
-        | 500
-        i.icon.icon-share.chico
-        | 150K
+        | 500 &nbsp;
+        //- i.icon.icon-share.chico
+        //- | 150K
+        a(ng-click='update(post)')
+            i.material-icons.chico border_color
+            | Editar
     p.dividervcc Título
     p.dividervcc &nbsp;
     p.dividervcc.barcc
