@@ -6,7 +6,6 @@ navbar
     li.list-group-item(ng-repeat='post in posts' )
       p(ng-repeat='version in post.VersionPosts')
          {{version.titulo}}
-         param:{{version.idArticulo}}
          a.trash(ng-click='delete(post)')
            span.glyphicon.glyphicon-trash.pull-right 
          a.edit(ng-click='update(post)')

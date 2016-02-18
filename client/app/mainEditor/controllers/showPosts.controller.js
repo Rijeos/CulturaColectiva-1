@@ -12,7 +12,7 @@ $scope.update= () => {
 	/*$scope.versionPost.$save(()=>{
 		$state.go('showPosts');
 	});*/
-    console.log("Entre Aquí"+ $stateParams);
+    console.log("Entre Aquí");
 }	
 
 
