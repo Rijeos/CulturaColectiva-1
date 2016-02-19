@@ -1,26 +1,25 @@
 ul.collection.recent
   li.collection-item.avatar(ng-repeat='post in posts')
-    div(ng-repeat='version in post.VersionPosts')
-      i.icon.icon-draft.circulo.white.grey-text
-      p.dividervcc 02/02/2010
-        span.right 
-          i.icon.icon-view.chico
-          | 500 &nbsp;
-          //- i.icon.icon-share.chico
-          //- | 150K
-          a(ng-click='update(post)')
-              i.material-icons.chico border_color
-              | Editar
-      p.dividervcc
-         {{version.titulo}}
-      p.dividervcc &nbsp;
-      p.dividervcc.barcc
-        a.badge1(href="#", data-badge="99")
-          i.icon.icon-comment.grey.darken-3.white-text.mediano
-        a.badge1(href="#", data-badge="30")
-          i.icon.icon-fav.grey.darken-3.white-text.mediano
-        a.badge1(href="#", data-badge="2")
-          i.icon.icon-strike.grey.darken-3.white-text.mediano
-        a.badge1(href="#", data-badge="6")
-          i.icon.icon-label.grey.darken-3.white-text.mediano
+    i.icon.icon-draft.circulo.white.grey-text
+    p.dividervcc {{post.fechaModificacion}}
+      span.right 
+        i.icon.icon-view.chico
+        | 500 &nbsp;
+        //- i.icon.icon-share.chico
+        //- | 150K
+        a(ng-click='showPost(post)')
+            i.material-icons.chico border_color
+            | Editar
+    p.dividervcc
+       {{post.titulo}}
+    p.dividervcc &nbsp;
+    p.dividervcc.barcc
+      a.badge1(href="#", data-badge="99")
+        i.icon.icon-comment.grey.darken-3.white-text.mediano
+      a.badge1(href="#", data-badge="30")
+        i.icon.icon-fav.grey.darken-3.white-text.mediano
+      a.badge1(href="#", data-badge="2")
+        i.icon.icon-strike.grey.darken-3.white-text.mediano
+      a.badge1(href="#", data-badge="6")
+        i.icon.icon-label.grey.darken-3.white-text.mediano
 hr

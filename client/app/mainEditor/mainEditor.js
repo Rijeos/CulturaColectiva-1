@@ -15,5 +15,12 @@ angular.module('culturaColectivaApp')
         url: '/mainEditor/showPosts',
         templateUrl: 'app/mainEditor/templates/showPosts.html',
         controller: 'showPostsCtrl'
+      }).state('editPost', {
+        url: '/mainEditor/editPost',
+        templateUrl: 'app/mainEditor/templates/editPost.html',
+        controller: 'EditPostCtrl',
+         params: {
+        id: null
+    }
       });
   });

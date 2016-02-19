@@ -73,7 +73,7 @@ export function index(req, res) {
 export function show(req, res) {
   Post.find({
     where: {
-      _id: req.params.id
+      idArticulo: req.params.id
     },
      include: [VersionPost]
   })

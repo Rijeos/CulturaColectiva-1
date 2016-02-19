@@ -1,19 +1,22 @@
 'use strict';
 
 angular.module('culturaColectivaApp')
-.controller('recentPostsCtrl', function ($scope,$stateParams,Post) {
+.controller('recentPostsCtrl', function ($scope,$state,LastVersionPost) {
 
-$scope.posts= Post.query();
+	$scope.posts= LastVersionPost.query();
 
-   $scope.posts.$promise.then(()=> {});
-   $scope.post=null;
+	$scope.posts.$promise.then(()=> {
 
-$scope.update= () => {
-	/*$scope.versionPost.$save(()=>{
-		$state.go('showPosts');
-	});*/
-    console.log("Entre Aquí");
-}	
+
+		$scope.showPost = (post) => {
+
+			$state.go('editPost', {id: post.idArticulo});
+			console.log("here! "+ post.idArticulo);
+		}	
+
+	}); 
+
+
 
 
 });

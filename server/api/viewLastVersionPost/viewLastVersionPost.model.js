@@ -2,14 +2,20 @@
 
 export default function(sequelize, DataTypes) {
   return sequelize.define('ViewLastVersionPost', {
-    _id: {
+   cveArticulo: {
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
       autoIncrement: true
     },
-    name: DataTypes.STRING,
-    info: DataTypes.STRING,
-    active: DataTypes.BOOLEAN
+    idArticulo:DataTypes.INTEGER,
+    titulo: DataTypes.STRING,
+    fechaModificacion: DataTypes.DATE,
+    contenido:DataTypes.STRING
+  },{
+    timestamps:false,
+    freezeTableName:true,
+    tableName: "ultimaversionarticulo"
   });
 }
+
