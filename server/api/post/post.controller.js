@@ -93,6 +93,8 @@ export function create(req, res) {
 
 // Updates an existing Post in the DB
 export function update(req, res) {
+  console.log(req.body); 
+  
   if (req.body.idArticulo) {
     delete req.body.idArticulo;
   }
@@ -109,12 +111,16 @@ export function update(req, res) {
 
 // Deletes a Post from the DB
 export function destroy(req, res) {
-  Post.find({
+ console.log("estoy aqui " + req.params.id );
+ delete req.params.id; 
+  /*Post.find({
     where: {
-      _id: req.params.id
+      idArticulo: req.params.id
     }
   })
     .then(handleEntityNotFound(res))
-    .then(removeEntity(res))
-    .catch(handleError(res));
+    .then(saveUpdates(req.body))
+    .then(responseWithResult(res))
+    .catch(handleError(res));*/
+   
 }

@@ -7,7 +7,7 @@ $scope.versionPost=new VersionPost;
 
 $scope.save= () => {
 	$scope.versionPost.$save(()=>{
-		$state.go('showPosts');
+		$state.go('mainEditor');
 	});
 }	
     

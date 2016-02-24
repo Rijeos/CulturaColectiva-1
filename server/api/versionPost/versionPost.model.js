@@ -8,6 +8,7 @@ export default function(sequelize, DataTypes) {
       primaryKey: true,
       autoIncrement: true
     },
+    idArticulo:DataTypes.INTEGER,
     titulo: DataTypes.STRING,
     descripcion: DataTypes.STRING,
     contenido: DataTypes.STRING,
