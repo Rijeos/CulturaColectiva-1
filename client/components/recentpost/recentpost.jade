@@ -1,25 +1,28 @@
-ul.collection.recent
+ul.collection
   li.collection-item.avatar(ng-repeat='post in posts')
     i.icon.icon-draft.circulo.white.grey-text
-    p.dividervcc {{post.fechaModificacion}}
+    p.dividervcc.datecc 
+      {{post.fechaModificacion | date}}
       span.right 
-        i.icon.icon-view.chico
-        | 500 &nbsp;
+        //- i.icon.icon-view.chico
+        //- | 500 &nbsp;
         //- i.icon.icon-share.chico
         //- | 150K
-        a(ng-click='showPost(post)')
-            i.material-icons.chico border_color
-            | Editar
-    p.dividervcc
-       {{post.titulo}}
+        a(ng-click='deletePost(post)', title='eliminar')
+          i.material-icons.chico delete
+        a(ng-click='showPost(post)', title='editar')
+          i.material-icons.chico edit
+          //- | Editar
+    p.dividervcc.titlecc 
+      {{post.titulo}}
     p.dividervcc &nbsp;
     p.dividervcc.barcc
-      a.badge1(href="#", data-badge="99")
-        i.icon.icon-comment.grey.darken-3.white-text.mediano
-      a.badge1(href="#", data-badge="30")
-        i.icon.icon-fav.grey.darken-3.white-text.mediano
-      a.badge1(href="#", data-badge="2")
-        i.icon.icon-strike.grey.darken-3.white-text.mediano
-      a.badge1(href="#", data-badge="6")
-        i.icon.icon-label.grey.darken-3.white-text.mediano
+      a.badge1.recent(href="#", data-badge="5")
+        i.icon.icon-comment.white-text.mediano
+      a.badge1.recent(href="#", data-badge="30")
+        i.icon.icon-fav.white-text.mediano
+      a.badge1.recent(href="#", data-badge="2")
+        i.icon.icon-strike.white-text.mediano
+      a.badge1.recent(href="#", data-badge="{{post.noEtiqueta}}")
+        i.icon.icon-label.white-text.mediano
 hr

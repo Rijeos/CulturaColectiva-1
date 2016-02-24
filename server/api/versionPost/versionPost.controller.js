@@ -7,14 +7,14 @@
  * DELETE  /api/versionPosts/:id          ->  destroy
  */
 
-'use strict';
+ 'use strict';
 
-import _ from 'lodash';
-var sqldb = require('../../sqldb');
-var VersionPost = sqldb.VersionPost;
-var Post = sqldb.Post;
+ import _ from 'lodash';
+ var sqldb = require('../../sqldb');
+ var VersionPost = sqldb.VersionPost;
+ var Post = sqldb.Post;
 
-function handleError(res, statusCode) {
+ function handleError(res, statusCode) {
   statusCode = statusCode || 500;
   return function(err) {
     res.status(statusCode).send(err);
@@ -43,9 +43,9 @@ function handleEntityNotFound(res) {
 function saveUpdates(updates) {
   return function(entity) {
     return entity.updateAttributes(updates)
-      .then(updated => {
-        return updated;
-      });
+    .then(updated => {
+      return updated;
+    });
   };
 }
 
@@ -53,9 +53,9 @@ function removeEntity(res) {
   return function(entity) {
     if (entity) {
       return entity.destroy()
-        .then(() => {
-          res.status(204).end();
-        });
+      .then(() => {
+        res.status(204).end();
+      });
     }
   };
 }
@@ -63,51 +63,52 @@ function removeEntity(res) {
 // Gets a list of VersionPosts
 export function index(req, res) {
   VersionPost.findAll()
-    .then(responseWithResult(res))
-    .catch(handleError(res));
+  .then(responseWithResult(res))
+  .catch(handleError(res));
 }
 
 // Gets a single VersionPost from the DB
 export function show(req, res) {
   VersionPost.find({
     where: {
-      _id: req.params.id
+      idArticulo: req.params.id
     }
   })
-    .then(handleEntityNotFound(res))
-    .then(responseWithResult(res))
-    .catch(handleError(res));
+  .then(handleEntityNotFound(res))
+  .then(responseWithResult(res))
+  .catch(handleError(res));
 }
 
 // Creates a new VersionPost in the DB
-export function create(req, res) {
- 
+export function create(req, res) {  
+
   let {titulo, contenido} = req.body;
   let idArticulo;
 
   let createVersion = () =>{
     VersionPost.create({
-        idArticulo: idArticulo,
-        titulo,
-        contenido
-      }).then(v=> res.send(v))
+      idArticulo: idArticulo,
+      titulo,
+      contenido,
+      fechaModificacion: new Date(),
+      idEstatus:1
+
+    }).then(v=> res.send(v))
     .catch(handleError(res));
   };
-  /*....*/
+  /*.. cRea primero el post y despues la version..*/
   if(!req.body.idArticulo)
   {
-    
     return Post.create({
-      
+      idEstatus:1
     })
     .then(a=>{      
-        
-        idArticulo = a.idArticulo;
 
-        return createVersion();       
+      idArticulo = a.idArticulo;
+
+      return createVersion();       
     })
-  }
-  createVersion();
+  }  
 }
 
 // Updates an existing VersionPost in the DB
@@ -115,40 +116,49 @@ export function update(req, res) {
   let {titulo, contenido} = req.body;
   let idArticulo;
 
+  /*--Crear Version--*/
   let createVersion = () =>{
     VersionPost.create({
-        idArticulo: idArticulo,
-        contenido
-      }).then(v=> res.send(v))
+      idArticulo: idArticulo,
+      titulo: titulo,
+      contenido,
+      fechaModificacion: new Date(),
+      idEstatus:1
+    }).then(v=> res.send(v))
     .catch(handleError(res));
   };
-  /*....*/
-  if(!req.body.idArticulo)
-  {
-    console.log("entre aqui "+ req.body.idArticulo);
-    return Post.create({titulo})
-    .then(a=>{      
-        
-        idArticulo = a.idArticulo;
+  /*--Consultar Versiones y cambia estado a 0 de la ultima version--*/
+  let consultaVersiones = () =>{
+    VersionPost.findAll({
+      where: {
+        idArticulo: req.params.id
+      }
+    }).then((result)=>{     
 
-        return createVersion();       
-    })
-  }
-  else
-  {
-    idArticulo= req.body.idArticulo;
-    createVersion();
-  }
+     var LastVersion= result[result.length -1];
+
+     LastVersion.idEstatus = 0;
+     LastVersion.save(); 
+   
+   }).catch(handleError(res));
+  };
+  /*....*/ 
+  idArticulo= req.body.idArticulo;
+  createVersion();
+  consultaVersiones();
+  
 }
+
+
 
 // Deletes a VersionPost from the DB
 export function destroy(req, res) {
   VersionPost.find({
     where: {
-      _id: req.params.id
+      idArticulo: req.params.id
     }
   })
-    .then(handleEntityNotFound(res))
-    .then(removeEntity(res))
-    .catch(handleError(res));
+  .then(handleEntityNotFound(res))
+  .then(removeEntity(res))
+  .catch(handleError(res));
 }

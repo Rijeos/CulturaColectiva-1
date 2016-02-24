@@ -1,23 +1,23 @@
 div.navbar-fixed(ng-controller='NavbarController')
   nav
     div.nav-wrapper.white
-      a.brand-logo(href="/")
+      a(href="/")
         img(width="129px", src="assets/images/logo-cc.svg")
       a.button-collapse(href="#", data-activates="mobile-cc", style="text-decoration:none;")
-        i.material-icons(style="color:black;") menu
+        i.material-icons(style="color:black;") &nbsp;menu
       ul.right.barcc
         
         li(ng-show='nav.isAdmin()', ui-sref-active='active')
           a(ui-sref='admin') Admin
         li
-          a(ui-sref='mainEditor', alt="CMS")
+          a.hide-mobile(ui-sref='mainEditor', alt="CMS")
             i.material-icons insert_drive_file
         li
           a(href="#")
             i.material-icons search
         li
           a(href="#")
-            i.material-icons reply
+            i.icon.icon-share.chico
         li
           a(ui-sref='login')
             i.material-icons account_circle
@@ -29,19 +29,24 @@ div.navbar-fixed(ng-controller='NavbarController')
 
         li(ng-show='nav.isLoggedIn()')
           a(ui-sref='logout') Logout
-      ul.side-nav#mobile-cc
+      ul.side-nav.grey.darken-3#mobile-cc
+        li.white
+          profile-item(style="color:#000;")
         li(ng-repeat='item in nav.menu', ui-sref-active='active')
-          a(ui-sref='{{item.state}}') {{item.title}}
-        li
-          a(ui-sref='signup') Registro
-        li
-          a(ui-sref='login') Login
-        li
-          a(ui-sref='mainEditor') CMS
+          a.white-text(ui-sref='{{item.state}}') {{item.title}}
+        li(ui-sref-active='active')
+          a.white-text(ui-sref='signup') Registro
+        li(ui-sref-active='active')
+          a.white-text(ui-sref='login') Login
+        li(ui-sref-active='active')
+          a.white-text(ui-sref='mainEditor') CMS
         li(ng-show='nav.isLoggedIn()', ui-sref-active='active')
-          a(ui-sref='settings')
+          a.white-text(ui-sref='settings')
             span.glyphicon.glyphicon-cog
         li(ng-show='nav.isLoggedIn()')
-          a(ui-sref='logout') Logout
+          a.white-text(ui-sref='logout') Logout
 script.
-  $(".button-collapse").sideNav();
+  $(".button-collapse").sideNav({
+    menuWidth: 350,
+    closeOnClick: true
+  });

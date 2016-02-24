@@ -9,7 +9,7 @@ export default function(sequelize, DataTypes) {
       autoIncrement: true
     },
     fechaPublicacion: DataTypes.DATE,
-    idEstatus: DataTypes.STRING    
+    idEstatus: DataTypes.INTEGER    
   },{
     timestamps:false,
     freezeTableName:true,

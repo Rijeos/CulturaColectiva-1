@@ -1,22 +1,28 @@
 'use strict';
 
 angular.module('culturaColectivaApp')
-  .controller('EditPostCtrl', function ($scope,$stateParams,Post) {
-    console.log($stateParams);
+.controller('EditPostCtrl', function ($scope,$stateParams,$state,Post,VersionPost) {
     $scope.post = Post.get({id: $stateParams.id});
-    $scope.versions =[];
-    $scope.version=null;
+    $scope.versions =[];      
 
-    $scope.post.$promise.then(()=> {
-        console.log("promesa de post");
-    	$scope.versions = $scope.post.VersionPosts;
+    $scope.post.$promise.then(()=> {   
 
-    	if($stateParams.version){           
-    		$scope.version=$scope.versions[$stateParams.version -1];
-    	}else{          
-    		$scope.version= $scope.versions [0];
-    	}    	
+        $scope.Lastversion=new VersionPost;  
 
-    });
-    
-  });
+        $scope.versions = $scope.post.VersionPosts;
+
+        if($scope.versions.length > 1){   
+          $scope.Lastversion=$scope.versions[$scope.versions.length -1];
+      }else{          
+         console.log($scope.versions); 
+          $scope.Lastversion= $scope.versions [0];
+      } 
+});
+
+$scope.save= () => {      
+        VersionPost.update($scope.Lastversion, ()=>{           
+            $state.go('mainEditor');
+        });
+    }   
+
+});
