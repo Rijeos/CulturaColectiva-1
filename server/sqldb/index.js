@@ -10,7 +10,17 @@ import Sequelize from 'sequelize';
 
 var db = {
   Sequelize,
-  sequelize: new Sequelize('db_cc',config.sequelize.user, config.sequelize.password,config.sequelize.options)
+  sequelize: new Sequelize(config.sequelize.database,
+                           config.sequelize.user, 
+                           config.sequelize.password,
+                           {host:'192.168.15.51', port:3306},
+                           {
+                              timestamps: true,
+                              createdAt: false,
+                              updatedAt: 'updateTimestamp',
+                              deletedAt: 'destroyTime',
+                              paranoid: true
+                            })
 };
 
 // Insert models below
