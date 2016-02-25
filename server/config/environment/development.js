@@ -6,14 +6,9 @@ module.exports = {
 
   // Sequelize connecton opions
   sequelize: {
-    user: 'root',
-    password:'root',
-    options: {
-      logging: false,
-      define: {
-        timestamps: false
-      }
-    }
+    database:'db_cc',
+    user: 'cc',
+    password:'root'
   },
 
   // Seed database on startup
