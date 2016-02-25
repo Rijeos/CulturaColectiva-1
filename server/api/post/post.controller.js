@@ -111,7 +111,7 @@ export function update(req, res) {
 
 // Deletes a Post from the DB
 export function destroy(req, res) {
- console.log("entre a delete" + req.params.id );
+ console.log("entre a delete:" + req.params.id );
  delete req.params.id; 
   /*Post.find({
     where: {
