@@ -21,8 +21,6 @@
     <!-- build:css({.tmp,client}) app/app.css -->
       <link rel="stylesheet" href="app/app.css">
       <!-- injector:css -->
-      <link rel="stylesheet" href="app/commonCSS/fonts/DIN/specimen_files/grid_12-825-55-15.css">
-      <link rel="stylesheet" href="app/commonCSS/fonts/DIN/specimen_files/specimen_stylesheet.css">
       <!-- endinjector -->
     <!-- endbuild -->
   </head>
@@ -74,7 +72,7 @@
       <script src="components/auth/auth.module.js"></script>
       <script src="components/services/services.module.js"></script>
       <script src="components/util/util.module.js"></script>
-      <script src="components/auth/router.decorator.js"></script>
+      <script src="components/auth/interceptor.service.js"></script>
       <script src="app/account/account.js"></script>
       <script src="app/admin/admin.router.js"></script>
       <script src="app/app.constant.js"></script>
@@ -84,11 +82,13 @@
       <script src="app/mainEditor/controllers/mainEditor.controller.js"></script>
       <script src="app/mainEditor/controllers/newPost.controller.js"></script>
       <script src="app/mainEditor/mainEditor.js"></script>
+      <script src="app/post/post.controller.js"></script>
+      <script src="app/post/post.directive.js"></script>
       <script src="components/actionBar/actionBar.directive.js"></script>
       <script src="app/account/settings/settings.controller.js"></script>
       <script src="components/auth/auth.service.js"></script>
-      <script src="components/auth/interceptor.service.js"></script>
       <script src="app/account/login/login.controller.js"></script>
+      <script src="components/auth/router.decorator.js"></script>
       <script src="components/auth/user.service.js"></script>
       <script src="components/footer/footer.directive.js"></script>
       <script src="components/modal/modal.service.js"></script>

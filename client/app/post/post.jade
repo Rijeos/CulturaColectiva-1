@@ -1,0 +1,19 @@
+ul
+  li(ng-repeat='post in posts')
+    .container-cc
+      .clearfix
+      p.datecc(style="margin-top:20px;")
+        {{post.fechaModificacion | date}}
+        span.right 
+          i.icon.icon-view.chico
+          | 500 &nbsp;
+          //- i.icon.icon-share.chico
+          //- | 150K
+      p.titlecc 
+        {{post.titulo}}
+    profile-item(style="color:#000;")
+    .container-cc
+      p(ng-bind-html="post.contenido")
+
+    .hero-unit.container
+      img(src='assets/images/yeoman.png', alt='I\'m Yeoman')
