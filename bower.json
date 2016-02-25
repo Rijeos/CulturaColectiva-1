@@ -16,7 +16,7 @@
     "angular-socket-io": "~0.7.0",
     "angular-ui-router": "~0.2.15",
     "angular-validation-match": "~1.5.2",
-    "angular-froala": "^2.1.0",
+    "angular-froala": "~2.1.0",
     "Materialize": "materialize#^0.97.5"
   },
   "devDependencies": {

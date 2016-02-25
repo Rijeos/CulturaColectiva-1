@@ -22,6 +22,9 @@ module.exports = function(config) {
       'client/bower_components/angular-socket-io/socket.js',
       'client/bower_components/angular-ui-router/release/angular-ui-router.js',
       'client/bower_components/angular-validation-match/dist/angular-validation-match.min.js',
+      'client/bower_components/froala-wysiwyg-editor/js/froala_editor.min.js',
+      'client/bower_components/angular-froala/src/angular-froala.js',
+      'client/bower_components/Materialize/bin/materialize.js',
       'client/bower_components/angular-mocks/angular-mocks.js',
       // endbower
       'node_modules/socket.io-client/socket.io.js',
