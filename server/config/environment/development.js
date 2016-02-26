@@ -7,7 +7,7 @@ module.exports = {
   // Sequelize connecton opions
   sequelize: {
     database:'db_cc',
-    user: 'root',
+    user: 'cc',
     password:'root'
   },
 
