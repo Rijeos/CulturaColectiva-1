@@ -12,7 +12,8 @@ export default function(sequelize, DataTypes) {
     titulo: DataTypes.STRING,
     fechaModificacion: DataTypes.DATE,
     contenido:DataTypes.STRING,
-    noEtiqueta: DataTypes.INTEGER
+    noEtiqueta: DataTypes.INTEGER,
+    nombreAutor:DataTypes.STRING 
   },{
     timestamps:false,
     freezeTableName:true,
