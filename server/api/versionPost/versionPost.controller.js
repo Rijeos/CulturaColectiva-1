@@ -100,7 +100,8 @@ export function create(req, res) {
   if(!req.body.idArticulo)
   {
     return Post.create({
-      idEstatus:1
+      idEstatus:1,
+      cveAutor:335
     })
     .then(a=>{      
 

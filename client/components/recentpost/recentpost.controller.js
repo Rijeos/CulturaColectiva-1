@@ -7,6 +7,8 @@ angular.module('culturaColectivaApp')
 
 	$scope.posts.$promise.then(()=> {
 
+		console.log("llegue a la promesa");
+
 
 		$scope.showPost = (post)  => {
 			$state.go('editPost', {id: post.idArticulo});			

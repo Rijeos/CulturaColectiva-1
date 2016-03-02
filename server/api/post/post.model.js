@@ -8,6 +8,7 @@ export default function(sequelize, DataTypes) {
       primaryKey: true,
       autoIncrement: true
     },
+    cveAutor: DataTypes.INTEGER,
     fechaPublicacion: DataTypes.DATE,
     idEstatus: DataTypes.INTEGER    
   },{

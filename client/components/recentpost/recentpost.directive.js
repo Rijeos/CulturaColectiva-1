@@ -3,7 +3,7 @@
 angular.module('culturaColectivaApp')
   .directive('recentPost', function () {
     return {
-      templateUrl: 'components/recentPost/recentPost.html',
+      templateUrl: 'components/recentpost/recentpost.html',
       restrict: 'E',
       link: function (scope, element, attrs) {
       },

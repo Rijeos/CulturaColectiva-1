@@ -13,7 +13,7 @@ var db = {
   sequelize: new Sequelize(config.sequelize.database,
                            config.sequelize.user, 
                            config.sequelize.password,
-                           {host:'192.168.15.51', port:3306},
+                           {host:'127.0.0.1', port:3306},
                            {
                               timestamps: true,
                               createdAt: false,
