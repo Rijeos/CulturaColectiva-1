@@ -7,8 +7,8 @@ module.exports = {
   // Sequelize connecton opions
   sequelize: {
     database:'db_culturacolectiva',
-    user: 'root',
-    password:'root'
+    user: 'cc',
+    password:'CC-dvlpmnt'
   },
 
   // Seed database on startup
