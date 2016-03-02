@@ -13,6 +13,6 @@ module.exports = {
   sequelize: {
     database:'db_culturacolectiva',
     user: 'cc',
-    password:'CCdvlpmnt'
+    password:'CC-dvlpmnt'
   }
 };
