@@ -8,7 +8,7 @@ module.exports = {
   sequelize: {
     database:'db_culturacolectiva',
     user: 'cc',
-    password:'CC-dvlpmnt'
+    password:'CCdvlpmnt'
   },
 
   // Seed database on startup
