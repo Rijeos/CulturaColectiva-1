@@ -7,7 +7,7 @@ module.exports = {
   // Server port
   port:   process.env.OPENSHIFT_NODEJS_PORT ||
           process.env.PORT ||
-          30191,
+          31995,
 
   // Sequelize connecton opions
   sequelize: {
